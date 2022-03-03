@@ -1,0 +1,107 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.main {
+  display: grid;
+  grid-template-areas:
+    "m a"
+    "m a"
+    "f a";
+
+
+  main {
+    width: 50vw;
+    grid-area: m;
+  }
+
+  // aside
+
+  aside {
+    width: 50vw;
+    height: 100vh;
+    grid-area: a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    background-color: black;
+    h1 {
+      margin-left: 10%;
+      margin-top: 20vh;
+      width: 100%;
+      font-family: Rowdies;
+      font-size:  4rem;
+      line-height: 79px;
+
+      /* Redberry Red */
+      color: #fe3b1f;
+    }
+    p {
+       margin-left: 10%;
+       margin-right: 10%;
+      margin-top: 10%;
+      font-family: Montserrat;
+      font-size: 24px;
+      line-height: 200%;
+
+      /* or 48px */
+      align-items: center;
+      letter-spacing: 0.05em;
+
+      color: #ffffff;
+    }
+  }
+
+  footer {
+    grid-area: f;
+  }
+}
+// Pagination
+
+.pagBtns {
+  width: 100%;
+  height: 80%;
+  list-style: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  a {
+    margin-left: 6px;
+    margin-right: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 50%;
+    font-size: 10px;
+    color: #fe3b1f;
+    background-color: #fe3b1f;
+    border: 4px solid #fe3b1f;
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+.nextBtns,
+.prevBtns {
+  a {
+    background-color: white;
+    opacity: 1;
+  }
+}
+.prevBtns {
+  transform: rotateY(-180deg);
+}
+//Error
+
+.error {
+    text-align: center;
+    margin: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    width: 60%;
+    color:#fe3b1f;
+    border: #fe3b1f 2px solid;
+    cursor: pointer;//just for fun
+   &:hover{
+        background-color: black;
+   }
+}

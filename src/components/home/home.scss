@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Rowdies&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat&family=Rowdies&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+}
+.home-main {
+    overflow-y: hidden; //this is needed because of animation on rocketman
+  // main page - flex column
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  /* Primary BG */
+  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  // header
+  header {
+    //I needed z-index to bring front text(stars were messing things up)
+    z-index: 1;
+    h1 {
+      margin-top: 15%;
+      font-family: Rowdies;
+      font-size: 96px;
+      /* Redberry Red */
+      color: #fe3b1f;
+    }
+  }
+  .form-link {
+    z-index: 1;
+    margin-top: 1%;
+    //Font
+    font-family: Montserrat;
+    font-size: 24px;
+    color: #ffffff;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  button {
+    z-index: 1;
+    width: 395px;
+    height: 79px;
+    margin-top: 10%;
+    flex-shrink: 0; //because of margin it was shrinking
+    cursor: pointer;
+    //Font
+    font-family: Montserrat;
+    font-size: 24px;
+    color: #ffffff;
+    // Background & Border
+    background: #fe3b1f;
+    border-radius: 50px;
+    border-color: #fe3b1f;
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+.stars {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: url(./home-src/stars.png);
+}
+
+.rocketman {
+  width: 100%;
+  height: 100%;
+  background: url(./home-src/rocketman.png);
+  background-repeat: no-repeat;
+  align-items: center;
+  background-position: center;
+  position:relative;
+  animation: linear infinite;
+  animation-name: gravity;
+  animation-duration: 5s;
+}
+
+//animation for moving rocketman
+@keyframes gravity {
+  0% {
+    top: -30px;
+    
+  }
+  50% {
+    top: 0px;
+  }
+  100% {
+    top: -30px;
+  }
+}
+

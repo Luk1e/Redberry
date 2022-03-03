@@ -1,0 +1,38 @@
+.main-0 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-0 header h1 {
+  margin-left: 15%;
+  margin-top: 10vh;
+  width: 80%;
+  font-family: Rowdies;
+  font-size: 4rem;
+  line-height: 79px;
+  /* Redberry Red */
+  color: #fe3b1f;
+}
+
+.main-0 input {
+  margin-top: 5vh;
+  border: 1px solid #525557;
+  width: 60%;
+  height: 6vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 5%;
+}
+
+.main-0 input:first-of-type {
+  margin-top: 10vh;
+}
+/*# sourceMappingURL=page_0.css.map */
