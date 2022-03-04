@@ -2,30 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  header {
-    h1 {
-         
-         margin-left: 15%;
-      margin-top: 10vh;
-      width: 80%;
-      font-family: Rowdies;
-      font-size: 4rem;
-      line-height: 79px;
 
-      /* Redberry Red */
-      color: #fe3b1f;
-    }
-  }
-  input {
-      margin-top: 5vh;
-    border: 1px solid #525557;
-    width: 60%;
-    height: 6vh;
-    box-sizing: border-box;
-    padding-left: 5%;
-    &:first-of-type{
-        margin-top: 10vh;
-    }
+  input:first-of-type {
+    margin-top: 10vh;
   }
 }
-

@@ -9,7 +9,6 @@
     "m a"
     "f a";
 
-
   main {
     width: 50vw;
     grid-area: m;
@@ -28,18 +27,18 @@
     background-color: black;
     h1 {
       margin-left: 10%;
-      margin-top: 20vh;
+      margin-top: 15vh;
       width: 100%;
       font-family: Rowdies;
-      font-size:  4rem;
+      font-size: 4rem;
       line-height: 79px;
 
       /* Redberry Red */
       color: #fe3b1f;
     }
     p {
-       margin-left: 10%;
-       margin-right: 10%;
+      margin-left: 10%;
+      margin-right: 10%;
       margin-top: 10%;
       font-family: Montserrat;
       font-size: 24px;
@@ -93,15 +92,48 @@
 //Error
 
 .error {
-    text-align: center;
-    margin: 10px;
-    padding-top: 1%;
-    padding-bottom: 1%;
-    width: 60%;
-    color:#fe3b1f;
-    border: #fe3b1f 2px solid;
-    cursor: pointer;//just for fun
-   &:hover{
-        background-color: black;
-   }
+  text-align: center;
+  margin: 10px;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  width: 45%;
+  color: #fe3b1f;
+  border: #fe3b1f 2px solid;
+  cursor: pointer; //just for fun
+  &:hover {
+    background-color: black;
+  }
+}
+// headers
+
+header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  h1 {
+    margin-top: 15vh;
+    width: 80%;
+    font-family: Rowdies;
+    font-size: 4rem;
+    line-height: 79px;
+
+    margin-left: 10%;
+    /* Redberry Red */
+    color: #fe3b1f;
+  }
+}
+
+//inputs
+input {
+  margin-top: 5vh;
+  border: 1px solid #525557;
+  width: 45%;
+  height: 6vh;
+  box-sizing: border-box;
+  padding-left: 5%;
+  &::placeholder {
+    font-family: Montserrat;
+    font-style: italic;
+    color: #454545;
+  }
 }

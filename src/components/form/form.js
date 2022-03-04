@@ -9,9 +9,9 @@ import Page_2 from "./pages/page_2/page_2";
 import Page_3 from "./pages/page_3/page_3";
 import Page_4 from "./pages/page_4/page_4";
 //css
-import "./form.css"
+import "./form.css";
 //data
-import {asideData} from "./src/aside.js"
+import { asideData } from "./src/aside.js";
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -21,20 +21,48 @@ class Form extends React.Component {
       lname: null,
       email: null,
       phone: null,
+      skills: {},
     };
-    this.setStateOfParent.bind(this);
   }
-  setStateOfParent = (newTitle) => {
-    this.setState({ ...newTitle });
-  };
 
+//set form first page parameters
+  setStateOfParent = (newState) => {
+    this.setState({ ...this.state, ...newState });
+  };
+//set skills from second page
+  setSkillOfParent = (newSkill) => {
+    this.setState({
+      ...this.state,
+      skills: {
+        ...this.state.skills,
+          ...newSkill
+      }
+    });
+  };
+// delete skills from second page
+  deleteSkillOfParent = (newskill) => {
+    let  skills = this.state.skills;
+    delete skills[newskill];
+   this.setState({
+      ...this.state,
+            skills
+      })
+}
   render() {
     switch (this.state.page) {
       case 0:
-        var Component = <Page_0 state={this.state} setStateOfParent = {this.setStateOfParent} />;
+        var Component = (
+          <Page_0 state={this.state} setStateOfParent={this.setStateOfParent} />
+        );
         break;
       case 1:
-        var Component = <Page_1 />;
+        var Component = (
+          <Page_1
+            state={this.state}
+            setStateOfParent={this.setSkillOfParent}
+            deleteSkillOfParent={this.deleteSkillOfParent}
+          />
+        );
         break;
       case 2:
         var Component = <Page_2 />;
@@ -76,7 +104,10 @@ class Form extends React.Component {
             onClick={(selected) => {
               if (selected.isPrevious && selected.selected == 0) {
                 window.location.replace(
-                  window.location.protocol + "//" + window.location.host + "/"
+                  window.location.protocol +
+                    "//" +
+                    window.location.host +
+                    "/Redberry"
                 );
               }
             }}

@@ -1,0 +1,115 @@
+.main-1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-1 header h1 {
+  width: 100%;
+}
+
+.main-1 .select {
+  margin-top: 15vh;
+  border: 1px solid #525557;
+  width: 45%;
+  height: 6vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 5%;
+  font-family: Montserrat;
+  font-style: italic;
+  color: #454545;
+}
+
+.main-1 .select:hover {
+  border-color: #fe3b1f;
+}
+
+.main-1 .select option {
+  font-size: 18px;
+}
+
+.main-1 .skillBtn {
+  width: 45%;
+}
+
+.main-1 .skillBtn button {
+  margin-top: 5%;
+  float: right;
+  font-family: Montserrat;
+  font-size: 12px;
+  line-height: 15px;
+  color: #ffffff;
+  width: 201px;
+  height: 32px;
+  /* Redberry Red */
+  background: #fe3b1f;
+  border: 3px solid #fe3b1f;
+}
+
+.main-1 .skillBtn button:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.main-1 .exp-div {
+  width: 45%;
+  height: 6vh;
+  background: #ffffff;
+  margin-top: 3vh;
+  /* Primary Stroke */
+  border: 1px solid #525557;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: Montserrat;
+  font-style: italic;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+.main-1 .exp-div p {
+  width: 40%;
+}
+
+.main-1 .exp-div p:first-of-type {
+  width: 30%;
+  margin-left: 20px;
+}
+
+.main-1 .exp-div:hover {
+  border: 3px solid #fe3b1f;
+}
+
+.main-1 div:not(.exp-div) + .exp-div {
+  margin-top: 6vh;
+}
+
+.exe {
+  color: #eb3535;
+  font-size: 30px;
+  margin: auto;
+  padding-left: 10%;
+}
+
+.exe:hover {
+  cursor: pointer;
+}
+/*# sourceMappingURL=page_1.css.map */

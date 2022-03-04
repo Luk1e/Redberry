@@ -1,15 +1,8 @@
 import React, { Component } from "react";
 import "./page_0.css";
 
-// function for error appending to dom
-function error(id, text, id2) {
-  let element = document.getElementById(id);
-  let error = document.createElement("p");
-  error.textContent = text;
-  error.setAttribute("id", id2);
-  error.setAttribute("class", "error");
-  element.after(error);
-}
+// error (explanation see in ./../error)
+import error from "./../error"
 // Email validation
 function validateEmail(emailAdress) {
   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -23,21 +16,9 @@ function validateEmail(emailAdress) {
 class Page_0 extends Component {
   constructor(props) {
     super(props);
-    this.handleClick.bind(this);
-      this.state = {
-        page: 0,
-        fname: null,
-        lname: null,
-        email: null,
-        phone: null,
-      };
   }
-  handleClick = () => {
-    // Simply call the setStateOfParent function from
-    // prop and pass required argument
-    //  alert(this.props.state.fname)
-
-    this.props.setStateOfParent(this.state);
+  handleClick = (param) => {
+    this.props.setStateOfParent(param);
 
   };
   render() {
@@ -54,9 +35,6 @@ class Page_0 extends Component {
           placeholder="First Name"
           defaultValue={this.props.state.fname}
           onChange={() => {
-            if (document.contains(document.getElementById("fname"))) {
-              document.getElementById("fname").remove();
-            }
             if (document.getElementById("first-name").value.length < 2) {
               if (document.getElementById("first-name").value.length == 0) {
                 error("first-name", "This Field is Required", "fname");
@@ -64,7 +42,9 @@ class Page_0 extends Component {
                 error("first-name", "Enter more than 2 letters", "fname");
               }
             }
-            this.setState({ fname: document.getElementById("first-name").value })
+            this.handleClick({
+              fname: document.getElementById("first-name").value,
+            });
           }}
         />
         {/* Last-name */}
@@ -85,9 +65,8 @@ class Page_0 extends Component {
                 error("last-name", "Enter more than 2 letters", "lname");
               }
             }
-              this.setState({
-                fname: document.getElementById("last-name").value,
-              });
+            
+            this.handleClick({ lname: document.getElementById("last-name").value });
           }}
         />
         {/* E-mail */}
@@ -97,17 +76,18 @@ class Page_0 extends Component {
           placeholder="E Mail"
           id="email"
           defaultValue={this.props.state.email}
-          onBlur={() => {
+          onChange={() => {
             if (document.contains(document.getElementById("ename"))) {
               document.getElementById("ename").remove();
             }
             if (!validateEmail(document.getElementById("email").value)) {
               error("email", "Please Enter Correct E-mail address", "ename");
             }
-              this.setState({
-                fname: document.getElementById("email").value,
-              });
+
+            this.handleClick({ email: document.getElementById("email").value });
           }}
+          
+          
         />
         {/* Phone Number */}
         <input
@@ -166,9 +146,9 @@ class Page_0 extends Component {
             }
             // I know Its not beautiful here but its beautiful for user :D (I know it could be written easier)
             document.getElementById("tel").value = "+995 5" + value;
-            this.setState({
-              fname: document.getElementById("tel").value,
-            });
+
+
+            this.handleClick({ phone: document.getElementById("tel").value });
           }}
           onBlur={() => {
             if (document.contains(document.getElementById("etel"))) {
@@ -188,10 +168,9 @@ class Page_0 extends Component {
           }}
           maxLength="17"
         />
-        <button onClick={this.handleClick}>Reveal Title</button>
       </section>
     );
-  }
+  } 
 }
 
 /*

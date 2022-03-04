@@ -11,27 +11,6 @@
           align-items: center;
 }
 
-.main-0 header h1 {
-  margin-left: 15%;
-  margin-top: 10vh;
-  width: 80%;
-  font-family: Rowdies;
-  font-size: 4rem;
-  line-height: 79px;
-  /* Redberry Red */
-  color: #fe3b1f;
-}
-
-.main-0 input {
-  margin-top: 5vh;
-  border: 1px solid #525557;
-  width: 60%;
-  height: 6vh;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  padding-left: 5%;
-}
-
 .main-0 input:first-of-type {
   margin-top: 10vh;
 }
