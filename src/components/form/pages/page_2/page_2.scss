@@ -1,0 +1,72 @@
+.main-2 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  header {
+    h1 {
+      margin-left: 0;
+    }
+  }
+}
+.radios {
+  overflow: hidden;
+  border: none;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  h1 {
+    width: 100%;
+    font-weight: normal;
+    margin-top: 5vh;
+    margin-left: 18%;
+    font-family: Montserrat;
+    font-size: 18px;
+    line-height: 22px;
+    display: flex;
+    color: #000000;
+  }
+  div {
+    margin-left: 19%;
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    label {
+      font-family: Montserrat;
+      font-size: 14px;
+      line-height: 17px;
+      display: flex;
+      align-items: center;
+
+      color: #000000;
+    }
+    input {
+      width: auto;
+      margin: 0;
+      padding: 0;
+      height: 20px;
+      margin-right: 10px;
+    }
+  }
+}
+
+.N1 {
+  h1 {
+    margin-top: 15vh;
+  }
+}
+.N2 {
+  h1 {
+      margin-top: 5vh;
+  }
+}
+.N3 {
+  height: 20vh;
+  h1 {
+    margin-top: 5vh;
+  }
+  input {
+     
+    margin-left: 18%;
+    width: 45%;
+  }
+}

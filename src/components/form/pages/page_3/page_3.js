@@ -1,7 +1,9 @@
 import React from "react";
 
 const Page_3 = () => {
-  return <div>page_4</div>;
+  return (
+    <input type="date" />
+  );
 };
 
 export default Page_3;

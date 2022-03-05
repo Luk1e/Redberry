@@ -3,22 +3,24 @@
   margin: 0;
 }
 .main {
+  height: 100vh;
   display: grid;
   grid-template-areas:
     "m a"
     "m a"
     "f a";
-
+  overflow-x: hidden;
   main {
     width: 50vw;
     grid-area: m;
+    height: fit-content;
   }
 
   // aside
 
   aside {
     width: 50vw;
-    height: 100vh;
+    height: 100%;
     grid-area: a;
     display: flex;
     flex-direction: column;
@@ -59,12 +61,13 @@
 // Pagination
 
 .pagBtns {
+  margin-top: 10%;
+  margin-bottom: 10%;
   width: 100%;
-  height: 80%;
   list-style: none;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content:center;
   a {
     margin-left: 6px;
     margin-right: 6px;

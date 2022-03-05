@@ -17,37 +17,43 @@ class Form extends React.Component {
     super(props);
     this.state = {
       page: 0,
-      fname: null,
-      lname: null,
+      first_name: null,
+      last_name: null,
       email: null,
       phone: null,
-      skills: {},
+      skills: [],
+      work_preference: null,
+      had_covid: null,
+      had_covid_at: null,
+      vaccinated: null,
+      vaccinated_at:null,
     };
   }
 
-//set form first page parameters
+  //set form first page parameters
   setStateOfParent = (newState) => {
     this.setState({ ...this.state, ...newState });
   };
-//set skills from second page
+  //set skills from second page
   setSkillOfParent = (newSkill) => {
     this.setState({
       ...this.state,
-      skills: {
+      skills: [
         ...this.state.skills,
-          ...newSkill
-      }
+        newSkill,
+      ],
     });
   };
-// delete skills from second page
+  // delete skills from second page
   deleteSkillOfParent = (newskill) => {
-    let  skills = this.state.skills;
-    delete skills[newskill];
-   this.setState({
+    let updatedSkills = this.state.skills.filter(function (el) {
+      return el != newskill;
+    });
+    this.setState({
       ...this.state,
-            skills
-      })
-}
+      skills: updatedSkills
+    });
+  };
   render() {
     switch (this.state.page) {
       case 0:
@@ -65,7 +71,10 @@ class Form extends React.Component {
         );
         break;
       case 2:
-        var Component = <Page_2 />;
+        var Component = (
+          <Page_2 state={this.state}
+            setStateOfParent={this.setStateOfParent} />
+        );
         break;
       case 3:
         var Component = <Page_3 />;

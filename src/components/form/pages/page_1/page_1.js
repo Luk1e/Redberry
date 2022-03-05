@@ -24,12 +24,7 @@ class Page_1 extends Component {
 
   render() {
     return (
-      <section
-        className="main-1"
-        onClick={() => {
-          document.getElementById("disabled").disabled = "true";
-        }}
-      >
+      <section className="main-1">
         <header>
           <h1>Tell us about your skills</h1>
         </header>
@@ -94,7 +89,11 @@ class Page_1 extends Component {
               let val1 = document.getElementById("skill").value;
               let val2 = document.getElementById("expYear").value;
 
-              if (val1 in this.props.state.skills) {
+              if (
+                this.props.state.skills.some(function (e) {
+                  return val1 in e;
+                })
+              ) {
                 error("skill", "You Can't add one Skill Twice!", "twice");
               } else if (val2 == 0) {
                 error("expYear", "Please write Experience Duration", "zero");
@@ -111,10 +110,17 @@ class Page_1 extends Component {
           </button>
         </div>
 
-        {Object.keys(this.props.state.skills).map((skill, index) => (
-          <div key={index} className="exp-div">
-            <p>{skill}</p>
-            <p>Years of Experience: {this.props.state.skills[skill]}</p>
+        {this.props.state.skills.map((skill) => (
+          <div key={Object.keys(skill)[0]} className="exp-div">
+            <p>{Object.keys(skill)[0]}</p>
+            <p>
+              Years of Experience:
+              {
+                this.props.state.skills.find(
+                  (elem) => Object.keys(elem)[0] == Object.keys(skill)[0]
+                )[Object.keys(skill)[0]]
+              }
+            </p>
             <span
               className="exe"
               onClick={() => {

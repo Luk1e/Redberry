@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+
+//css
 import "./page_0.css";
 
 // error (explanation see in ./../error)
-import error from "./../error"
+import error from "./../error";
 // Email validation
 function validateEmail(emailAdress) {
   let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -19,7 +21,6 @@ class Page_0 extends Component {
   }
   handleClick = (param) => {
     this.props.setStateOfParent(param);
-
   };
   render() {
     return (
@@ -35,11 +36,14 @@ class Page_0 extends Component {
           placeholder="First Name"
           defaultValue={this.props.state.fname}
           onChange={() => {
+            if (document.contains(document.getElementById("fname"))) {
+              document.getElementById("fname").remove();
+            }
             if (document.getElementById("first-name").value.length < 2) {
               if (document.getElementById("first-name").value.length == 0) {
                 error("first-name", "This Field is Required", "fname");
               } else {
-                error("first-name", "Enter more than 2 letters", "fname");
+                error("first-name", "Enter at least 2 letters", "fname");
               }
             }
             this.handleClick({
@@ -62,11 +66,13 @@ class Page_0 extends Component {
               if (document.getElementById("last-name").value.length == 0) {
                 error("last-name", "This Field is Required", "lname");
               } else {
-                error("last-name", "Enter more than 2 letters", "lname");
+                error("last-name", "Enter at least 2 letters", "lname");
               }
             }
-            
-            this.handleClick({ lname: document.getElementById("last-name").value });
+
+            this.handleClick({
+              lname: document.getElementById("last-name").value,
+            });
           }}
         />
         {/* E-mail */}
@@ -86,8 +92,6 @@ class Page_0 extends Component {
 
             this.handleClick({ email: document.getElementById("email").value });
           }}
-          
-          
         />
         {/* Phone Number */}
         <input
@@ -97,6 +101,20 @@ class Page_0 extends Component {
           onChange={() => {
             let value = document.getElementById("tel").value;
 
+            if (document.contains(document.getElementById("etel"))) {
+              document.getElementById("etel").remove();
+            }
+            if (
+              document.getElementById("tel").value.length != 17 &&
+              document.getElementById("tel").value.length != 0 &&
+              document.getElementById("tel").value.length != 9
+            ) {
+              error(
+                "tel",
+                "Enter Correct Phone Number or Leave it Empty",
+                "etel"
+              );
+            }
             if (value.startsWith("+995 ")) {
               value = value.slice(6);
             }
@@ -147,30 +165,13 @@ class Page_0 extends Component {
             // I know Its not beautiful here but its beautiful for user :D (I know it could be written easier)
             document.getElementById("tel").value = "+995 5" + value;
 
-
             this.handleClick({ phone: document.getElementById("tel").value });
-          }}
-          onBlur={() => {
-            if (document.contains(document.getElementById("etel"))) {
-              document.getElementById("etel").remove();
-            }
-            if (
-              document.getElementById("tel").value.length != 17 &&
-              document.getElementById("tel").value.length != 0 &&
-              document.getElementById("tel").value.length != 9
-            ) {
-              error(
-                "tel",
-                "Enter Correct Phone Number or Leave it Empty",
-                "etel"
-              );
-            }
           }}
           maxLength="17"
         />
       </section>
     );
-  } 
+  }
 }
 
 /*

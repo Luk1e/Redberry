@@ -5,7 +5,7 @@
   margin: 0;
 }
 .home-main {
-    overflow-y: hidden; //this is needed because of animation on rocketman
+  overflow-y: hidden; //this is needed because of animation on rocketman
   // main page - flex column
   width: 100vw;
   height: 100vh;
@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-
+  text-align: center;
   /* Primary BG */
   background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
   // header
@@ -73,7 +73,7 @@
   background-repeat: no-repeat;
   align-items: center;
   background-position: center;
-  position:relative;
+  position: relative;
   animation: linear infinite;
   animation-name: gravity;
   animation-duration: 5s;
@@ -83,7 +83,6 @@
 @keyframes gravity {
   0% {
     top: -30px;
-    
   }
   50% {
     top: 0px;
@@ -92,4 +91,3 @@
     top: -30px;
   }
 }
-

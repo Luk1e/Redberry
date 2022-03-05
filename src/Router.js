@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // COMPONENTS
 import Home from "./components/home/home";
-import Forms from "./components/form/form"
+import Forms from "./components/form/form";
 const RouterSetup = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
