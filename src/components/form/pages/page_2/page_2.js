@@ -138,9 +138,9 @@ class Page_2 extends Component {
               No
             </label>
           </div>
-
-          {/* covid time */}
         </fieldset>
+        {/* covid time */}
+
         <fieldset
           id="aidi"
           className="radios N3"

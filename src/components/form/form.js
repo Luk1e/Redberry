@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import ReactPaginate from "react-paginate";
 
-import { useNavigate } from "react-router-dom";
+//axios
+import axios from "axios";
 // pages
 import Page_0 from "./pages/page_0/page_0";
 import Page_1 from "./pages/page_1/page_1";
@@ -17,6 +18,7 @@ class Form extends React.Component {
     super(props);
     this.state = {
       page: 0,
+      skill_names: null,
       first_name: null,
       last_name: null,
       email: null,
@@ -26,10 +28,21 @@ class Form extends React.Component {
       had_covid: null,
       had_covid_at: null,
       vaccinated: null,
-      vaccinated_at:null,
+      vaccinated_at: null,
+      will_organize_devtalk: null,
+      devtalk_topic: null,
+      something_special: null,
     };
   }
-
+  optionSkills = () => {
+    axios.get("https://bootcamp-2022.devtest.ge/api/skills").then((res) => {
+      const skills = res.data;
+      this.setState({
+        ...this.state,
+        skill_names: skills,
+      });
+    });
+  };
   //set form first page parameters
   setStateOfParent = (newState) => {
     this.setState({ ...this.state, ...newState });
@@ -38,10 +51,7 @@ class Form extends React.Component {
   setSkillOfParent = (newSkill) => {
     this.setState({
       ...this.state,
-      skills: [
-        ...this.state.skills,
-        newSkill,
-      ],
+      skills: [...this.state.skills, newSkill],
     });
   };
   // delete skills from second page
@@ -51,9 +61,12 @@ class Form extends React.Component {
     });
     this.setState({
       ...this.state,
-      skills: updatedSkills
+      skills: updatedSkills,
     });
   };
+  componentDidMount() {
+    this.optionSkills();
+  }
   render() {
     switch (this.state.page) {
       case 0:
@@ -72,15 +85,18 @@ class Form extends React.Component {
         break;
       case 2:
         var Component = (
-          <Page_2 state={this.state}
-            setStateOfParent={this.setStateOfParent} />
+          <Page_2 state={this.state} setStateOfParent={this.setStateOfParent} />
         );
         break;
       case 3:
-        var Component = <Page_3 />;
+        var Component = (
+          <Page_3 state={this.state} setStateOfParent={this.setStateOfParent} />
+        );
         break;
       case 4:
-        var Component = <Page_4 />;
+        var Component = (
+          <Page_4 state={this.state} setStateOfParent={this.setStateOfParent} />
+        );
         break;
     }
 
@@ -120,6 +136,7 @@ class Form extends React.Component {
                 );
               }
             }}
+            forcePage={this.state.page}
             onPageChange={changePage}
             containerClassName={"pagBtns"}
             previousClassName={"prevBtns"}

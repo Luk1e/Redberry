@@ -34,7 +34,7 @@ class Page_0 extends Component {
           id="first-name"
           className="input inp-form"
           placeholder="First Name"
-          defaultValue={this.props.state.fname}
+          defaultValue={this.props.state.first_name}
           onChange={() => {
             if (document.contains(document.getElementById("fname"))) {
               document.getElementById("fname").remove();
@@ -47,7 +47,7 @@ class Page_0 extends Component {
               }
             }
             this.handleClick({
-              fname: document.getElementById("first-name").value,
+              first_name: document.getElementById("first-name").value,
             });
           }}
         />
@@ -57,7 +57,7 @@ class Page_0 extends Component {
           id="last-name"
           className="input inp-form"
           placeholder="Last Name"
-          defaultValue={this.props.state.lname}
+          defaultValue={this.props.state.last_name}
           onChange={() => {
             if (document.contains(document.getElementById("lname"))) {
               document.getElementById("lname").remove();
@@ -71,7 +71,7 @@ class Page_0 extends Component {
             }
 
             this.handleClick({
-              lname: document.getElementById("last-name").value,
+              last_name: document.getElementById("last-name").value,
             });
           }}
         />
@@ -107,7 +107,8 @@ class Page_0 extends Component {
             if (
               document.getElementById("tel").value.length != 17 &&
               document.getElementById("tel").value.length != 0 &&
-              document.getElementById("tel").value.length != 9
+              document.getElementById("tel").value.length != 6 &&
+              !(document.getElementById("tel").value == "+995 5  ")
             ) {
               error(
                 "tel",
@@ -166,6 +167,8 @@ class Page_0 extends Component {
             document.getElementById("tel").value = "+995 5" + value;
 
             this.handleClick({ phone: document.getElementById("tel").value });
+            alert(this.props.state.page);
+            this.handleClick({ page: 0 });
           }}
           maxLength="17"
         />

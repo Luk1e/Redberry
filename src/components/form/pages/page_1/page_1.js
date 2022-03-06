@@ -15,12 +15,6 @@ class Page_1 extends Component {
   handleClick = (param) => {
     this.props.setStateOfParent(param);
   };
-  optionSkills = () => {
-    axios.get("https://bootcamp-2022.devtest.ge/api/skills").then((res) => {
-      const skills = res.data;
-      this.setState({ skills: skills });
-    });
-  };
 
   render() {
     return (
@@ -33,7 +27,9 @@ class Page_1 extends Component {
 
         <select
           id="skill"
-          onClick={this.optionSkills}
+          onClick={() => {
+            document.getElementById("disabled").disabled = "true";
+          }}
           onChange={() => {
             if (document.contains(document.getElementById("twice"))) {
               document.getElementById("twice").remove();
@@ -44,8 +40,12 @@ class Page_1 extends Component {
           <option id="disabled" className="option" value="">
             Skills
           </option>
-          {this.state.skills.map((skill) => (
-            <option className="option" value={skill.title} key={skill.id}>
+          {this.props.state.skill_names.map((skill) => (
+            <option
+              className="option"
+              value={[skill.id, skill.title]}
+              key={skill.id}
+            >
               {skill.title}
             </option>
           ))}
@@ -89,19 +89,22 @@ class Page_1 extends Component {
               let val1 = document.getElementById("skill").value;
               let val2 = document.getElementById("expYear").value;
 
+              let id = val1.substring(0, val1.indexOf(","));
+              let title = val1.substring(val1.indexOf(",") + 1, val1.length);
+              //val1 is string
               if (
                 this.props.state.skills.some(function (e) {
-                  return val1 in e;
+                  return id == e["id"];
                 })
               ) {
                 error("skill", "You Can't add one Skill Twice!", "twice");
               } else if (val2 == 0) {
                 error("expYear", "Please write Experience Duration", "zero");
-              } else if (val1 == "") {
+              } else if (title == "") {
                 error("skill", "Please Choose Skills", "no-skill");
               } else {
                 document.getElementById("expYear").value = null;
-                this.handleClick({ [val1]: val2 });
+                this.handleClick({ id: id, title: title, experience: val2 });
               }
             }}
             id="expBtn"
@@ -111,15 +114,11 @@ class Page_1 extends Component {
         </div>
 
         {this.props.state.skills.map((skill) => (
-          <div key={Object.keys(skill)[0]} className="exp-div">
-            <p>{Object.keys(skill)[0]}</p>
+          <div key={skill.experience} className="exp-div">
+            <p>{skill.title}</p>
             <p>
               Years of Experience:
-              {
-                this.props.state.skills.find(
-                  (elem) => Object.keys(elem)[0] == Object.keys(skill)[0]
-                )[Object.keys(skill)[0]]
-              }
+              {skill.experience}
             </p>
             <span
               className="exe"

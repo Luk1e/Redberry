@@ -21,7 +21,7 @@
     //I needed z-index to bring front text(stars were messing things up)
     z-index: 1;
     h1 {
-      margin-top: 15%;
+      margin-top: 12%;
       font-family: Rowdies;
       font-size: 96px;
       /* Redberry Red */
@@ -43,7 +43,7 @@
     z-index: 1;
     width: 395px;
     height: 79px;
-    margin-top: 10%;
+    margin-top: 8%;
     flex-shrink: 0; //because of margin it was shrinking
     cursor: pointer;
     //Font
