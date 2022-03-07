@@ -403,8 +403,8 @@ class Form extends React.Component {
             <div
               className="nextBtns"
               onClick={() => {
+                alert(eval("this.state.page_" + this.state.page))
                 if (eval("this.state.page_" + this.state.page)) {
-                  this.btnEnable(""+(this.state.page+1))
                   this.setStateOfParent({
                     page: this.state.page + 1,
                   });
