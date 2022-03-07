@@ -47,7 +47,7 @@ class Form extends React.Component {
     };
   }
 
-  // -                        F U N C T I O N S 
+  // -                        F U N C T I O N S
 
   // get skills from api
   optionSkills = () => {
@@ -194,12 +194,12 @@ class Form extends React.Component {
     this.optionSkills();
   }
   //-                         B U T T O N   F U N C T I O N(additional)
-  btnDisable =(id) => {
+  btnDisable = (id) => {
     document.getElementById(id).style.opacity = "0.1";
-  }
-  btnEnable=(id) => {
+  };
+  btnEnable = (id) => {
     document.getElementById(id).style.opacity = "1";
-  }
+  };
   // -                         Render
 
   render() {
@@ -297,7 +297,8 @@ class Form extends React.Component {
               onClick={() => {
                 if (!this.state.page_0 && this.state.page < 1) {
                   this.First_search();
-                } else {this.btnEnable("1");
+                } else {
+                  this.btnEnable("1");
                   this.setStateOfParent({
                     page: 1,
                   });
@@ -324,7 +325,7 @@ class Form extends React.Component {
                       break;
                   }
                 } else {
-                   this.btnEnable("2");
+                  this.btnEnable("2");
                   this.setStateOfParent({
                     page: 2,
                   });
@@ -400,29 +401,54 @@ class Form extends React.Component {
               d
             </div>
             {/* nextBTN */}
+            {/* I had written this button in a few lines :D  but 
+            github pages had problem(it was correct on localhost)
+            i tried using eval and this.state["page_"+this.page] but 
+            on git pages it gave error so I have written this way :( */}
             <div
               className="nextBtns"
               onClick={() => {
-                if (this.state["page_" + this.state.page]) {
-                  this.btnEnable("" + (this.state.page + 1));
-                  this.setStateOfParent({
-                    page: this.state.page + 1,
-                  });
-                } else {
-                  switch (this.state.page) {
-                    case 0:
+                switch (this.state.page) {
+                  case 0:
+                    if (this.state.page_0) {
+                      this.btnEnable("1");
+                      this.setStateOfParent({
+                        page: 1,
+                      });
+                    } else {
                       this.First_search();
-                      break;
-                    case 1:
+                    }
+                    break;
+                  case 1:
+                    if (this.state.page_1) {
+                      this.btnEnable("2");
+                      this.setStateOfParent({
+                        page: 2,
+                      });
+                    } else {
                       this.Second_search();
-                      break;
-                    case 2:
+                    }
+                    break;
+                  case 2:
+                    if (this.state.page_2) {
+                      this.btnEnable("3");
+                      this.setStateOfParent({
+                        page: 3,
+                      });
+                    } else {
                       this.Third_search();
-                      break;
-                    case 3:
+                    }
+                    break;
+                  case 3:
+                    if (this.state.page_3) {
+                      this.btnEnable("4");
+                      this.setStateOfParent({
+                        page: 4,
+                      });
+                    } else {
                       this.Fourth_search();
-                      break;
-                  }
+                    }
+                    break;
                 }
               }}
             >
