@@ -7,6 +7,10 @@
       margin-left: 0;
     }
   }
+   .error {
+    margin-left: 13%;
+    width:40%;
+  }
 }
 .radios {
   overflow: hidden;
@@ -53,20 +57,29 @@
   h1 {
     margin-top: 15vh;
   }
+
 }
 .N2 {
   h1 {
-      margin-top: 5vh;
+    margin-top: 5vh;
   }
 }
-.N3 { 
+.N3 {
   height: 20vh;
   h1 {
     margin-top: 5vh;
   }
   input {
-     
     margin-left: 18%;
     width: 45%;
   }
+}
+
+
+
+#had_covid_at-error,#vaccinated_at-error{
+  margin-left: 18%;
+  width: 45%;
+  
+  
 }

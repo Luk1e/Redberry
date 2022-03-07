@@ -11,18 +11,18 @@ class Page_4 extends Component {
     this.props.setStateOfParent(param);
   };
   createPost() {
-    document.getElementById("thanks").style.display = "none";
+    document.getElementById("thanks").style.display = "flex";
     setTimeout(() => {
-      // window.location.replace(
-      //   window.location.protocol + "//" + window.location.host + "/Redberry"
-      // );
+      window.location.replace(
+        window.location.protocol + "//" + window.location.host + "/Redberry"
+      );
     }, 3000);
     let new_skills = this.props.state.skills;
     new_skills.forEach((object) => {
       delete object["title"];
     });
     let data = {
-      token: "aac7f5be-d6de-4cf9-81b3-1d252cf8f429",
+      token: "02090086-ec8a-460c-b71a-b68895f26764",
       first_name: this.props.state.first_name,
       last_name: this.props.state.last_name,
       email: this.props.state.email,
@@ -35,20 +35,23 @@ class Page_4 extends Component {
       skills: new_skills,
       work_preference: this.props.state.work_preference,
       had_covid: this.props.state.had_covid.toLowerCase() === "true",
-      ...(this.props.state.had_covid_at != null && {
-        had_covid_at: this.props.state.had_covid_at,
-      }),
+      ...(this.props.state.had_covid_at != null &&
+        this.props.state.had_covid_at != "" && {
+          had_covid_at: this.props.state.had_covid_at,
+        }),
 
       vaccinated: this.props.state.vaccinated.toLowerCase() === "true",
-      ...(this.props.state.vaccinated_at != null && {
-        vaccinated_at: this.props.state.vaccinated_at,
-      }),
+      ...(this.props.state.vaccinated_at != null &&
+        this.props.state.vaccinated_at != "" && {
+          vaccinated_at: this.props.state.vaccinated_at,
+        }),
       will_organize_devtalk:
         this.props.state.will_organize_devtalk.toLowerCase() === "true",
-      devtalk_topic: this.props.state.devtalk_topic,
+      ...(this.props.state.will_organize_devtalk.toLowerCase() === "true" && {
+        devtalk_topic: this.props.state.devtalk_topic,
+      }),
       something_special: this.props.state.something_special,
     };
-    alert(data.vaccinated_at);
     return fetch("https://bootcamp-2022.devtest.ge/api/application", {
       method: "POST",
       body: JSON.stringify(data),

@@ -13,6 +13,11 @@
   margin-left: 0;
 }
 
+.main-2 .error {
+  margin-left: 13%;
+  width: 40%;
+}
+
 .radios {
   overflow: hidden;
   border: none;
@@ -90,6 +95,11 @@
 }
 
 .N3 input {
+  margin-left: 18%;
+  width: 45%;
+}
+
+#had_covid_at-error, #vaccinated_at-error {
   margin-left: 18%;
   width: 45%;
 }

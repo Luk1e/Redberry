@@ -91,7 +91,7 @@
           justify-content: center;
 }
 
-.pagBtns a {
+.pagBtns div {
   margin-left: 6px;
   margin-right: 6px;
   padding-left: 6px;
@@ -102,12 +102,16 @@
   background-color: #fe3b1f;
   border: 4px solid #fe3b1f;
   cursor: pointer;
+  opacity: 0.1;
+}
+
+.pagBtns div:nth-of-type(1), .pagBtns div:nth-of-type(2), .pagBtns div:nth-of-type(7) {
   opacity: 1;
 }
 
-.nextBtns a,
-.prevBtns a {
-  background-color: white;
+.nextBtns,
+.prevBtns {
+  background-color: white !important;
   opacity: 1;
 }
 

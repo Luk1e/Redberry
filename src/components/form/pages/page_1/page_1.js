@@ -13,7 +13,15 @@ class Page_1 extends Component {
     };
   }
   handleClick = (param) => {
-    this.props.setStateOfParent(param);
+    this.props.setSkillOfParent(
+      {
+        ...param,
+      },
+      {
+        page_1:
+          Object.keys(document.getElementsByClassName("error")).length === 0,
+      }
+    );
   };
 
   render() {
@@ -114,7 +122,7 @@ class Page_1 extends Component {
         </div>
 
         {this.props.state.skills.map((skill) => (
-          <div key={skill.experience} className="exp-div">
+          <div key={skill.id} className="exp-div">
             <p>{skill.title}</p>
             <p>
               Years of Experience:
@@ -123,7 +131,9 @@ class Page_1 extends Component {
             <span
               className="exe"
               onClick={() => {
-                this.props.deleteSkillOfParent(skill);
+                this.props.deleteSkillOfParent(skill, {
+                  page_1: Object.keys(this.props.state.skills).length >1,
+                });
               }}
             >
               &#8861;

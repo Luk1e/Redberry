@@ -7,7 +7,21 @@ class Page_2 extends Component {
     super(props);
   }
   handleClick = (param) => {
-    this.props.setStateOfParent(param);
+    this.props.setStateOfParent({
+      ...param,
+      page_2:
+        document.querySelector('input[name="work"]:checked') != null &&
+        document.querySelector('input[name="covid-contact"]:checked') != null &&
+        document.querySelector('input[name="vaccinated"]:checked') != null &&
+        (document.querySelector('input[name="covid-contact"]:checked').value ==
+        "true"
+          ? document.getElementById("covid-start").value != ""
+          : true) &&
+        (document.querySelector('input[name="vaccinated"]:checked').value ==
+        "true"
+          ? document.getElementById("vaccine-last").value != ""
+          : true),
+    });
   };
   render() {
     return (
@@ -16,7 +30,7 @@ class Page_2 extends Component {
           <h1>Covid Stuff</h1>
         </header>
         {/* work from */}
-        <fieldset className="radios N1">
+        <fieldset className="radios N1" id="work-field">
           <h1>how would you prefer to work??</h1>
 
           <div>
@@ -31,6 +45,13 @@ class Page_2 extends Component {
                     ? true
                     : false
                 }
+                onClick={() => {
+                  if (
+                    document.contains(document.getElementById("work-error"))
+                  ) {
+                    document.getElementById("work-error").remove();
+                  }
+                }}
                 onChange={() =>
                   this.handleClick({
                     work_preference: document.querySelector(
@@ -53,6 +74,13 @@ class Page_2 extends Component {
                 checked={
                   this.props.state.work_preference == "from_home" ? true : false
                 }
+                onClick={() => {
+                  if (
+                    document.contains(document.getElementById("work-error"))
+                  ) {
+                    document.getElementById("work-error").remove();
+                  }
+                }}
                 onChange={() =>
                   this.handleClick({
                     work_preference: document.querySelector(
@@ -75,6 +103,13 @@ class Page_2 extends Component {
                 checked={
                   this.props.state.work_preference == "hybrid" ? true : false
                 }
+                onClick={() => {
+                  if (
+                    document.contains(document.getElementById("work-error"))
+                  ) {
+                    document.getElementById("work-error").remove();
+                  }
+                }}
                 onChange={() =>
                   this.handleClick({
                     work_preference: document.querySelector(
@@ -90,7 +125,7 @@ class Page_2 extends Component {
 
         {/* covid contact */}
 
-        <fieldset className="radios N2">
+        <fieldset className="radios N2" id="covid-contact-field">
           <h1>Did you contact covid 19? :(</h1>
 
           <div>
@@ -109,6 +144,15 @@ class Page_2 extends Component {
                   })
                 }
                 onClick={() => {
+                  
+                     if (
+                       document.contains(
+                         document.getElementById("had_covid-error")
+                       )
+                     ) {
+                       document.getElementById("had_covid-error").remove();
+                     }
+                
                   document.getElementById("aidi").style.display = "flex";
                 }}
               />
@@ -124,6 +168,13 @@ class Page_2 extends Component {
                 id="covid-no"
                 value="false"
                 onClick={() => {
+                  if (
+                    document.contains(
+                      document.getElementById("had_covid-error")
+                    )
+                  ) {
+                    document.getElementById("had_covid-error").remove();
+                  }
                   document.getElementById("aidi").style.display = "none";
                 }}
                 checked={this.props.state.had_covid == "false" ? true : false}
@@ -157,11 +208,17 @@ class Page_2 extends Component {
             placeholder="Date"
             type="text"
             defaultValue={this.props.state.had_covid_at}
-            onChange={() =>
+            onChange={() => {
+              if (
+                document.contains(document.getElementById("had_covid_at-error"))
+              ) {
+                document.getElementById("had_covid_at-error").remove();
+              }
               this.handleClick({
                 had_covid_at: document.getElementById("covid-start").value,
               })
-            }
+            }}
+            
             onFocus={() => {
               document.getElementById("covid-start").type = "date";
             }}
@@ -172,7 +229,7 @@ class Page_2 extends Component {
         </fieldset>
 
         {/* vaccinated*/}
-        <fieldset className="radios N2">
+        <fieldset className="radios N2" id="vaccinated-field">
           <h1>Have you been vaccinated?</h1>
 
           <div>
@@ -191,6 +248,13 @@ class Page_2 extends Component {
                   })
                 }
                 onClick={() => {
+                  if (
+                    document.contains(
+                      document.getElementById("vaccinated-error")
+                    )
+                  ) {
+                    document.getElementById("vaccinated-error").remove();
+                  }
                   document.getElementById("aidi-1").style.display = "flex";
                 }}
               />
@@ -206,6 +270,13 @@ class Page_2 extends Component {
                 id="vaccinated-no"
                 value={false}
                 onClick={() => {
+                  if (
+                    document.contains(
+                      document.getElementById("vaccinated-error")
+                    )
+                  ) {
+                    document.getElementById("vaccinated-error").remove();
+                  }
                   document.getElementById("aidi-1").style.display = "none";
                 }}
                 checked={this.props.state.vaccinated == "false" ? true : false}
@@ -221,6 +292,7 @@ class Page_2 extends Component {
             </label>
           </div>
         </fieldset>
+        {/* vacinated at */}
         <fieldset
           id="aidi-1"
           className="radios N3"
@@ -237,10 +309,18 @@ class Page_2 extends Component {
             placeholder="Date"
             type="text"
             defaultValue={this.props.state.vaccinated_at}
-            onChange={() =>
+            onChange={() => {
+              if (
+                document.contains(
+                  document.getElementById("vaccinated_at-error")
+                )
+              ) {
+                document.getElementById("vaccinated_at-error").remove();
+              };
               this.handleClick({
                 vaccinated_at: document.getElementById("vaccine-last").value,
               })
+            }
             }
             onFocus={() => {
               document.getElementById("vaccine-last").type = "date";

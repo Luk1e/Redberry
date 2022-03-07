@@ -20,7 +20,14 @@ class Page_0 extends Component {
     super(props);
   }
   handleClick = (param) => {
-    this.props.setStateOfParent(param);
+    this.props.setStateOfParent({
+      ...param,
+      page_0:
+        document.getElementById("first-name").value != null &&
+        document.getElementById("last-name").value != null &&
+        document.getElementById("email").value != "" &&
+        Object.keys(document.getElementsByClassName("error")).length === 0,
+    });
   };
   render() {
     return (
@@ -167,8 +174,6 @@ class Page_0 extends Component {
             document.getElementById("tel").value = "+995 5" + value;
 
             this.handleClick({ phone: document.getElementById("tel").value });
-            alert(this.props.state.page);
-            this.handleClick({ page: 0 });
           }}
           maxLength="17"
         />

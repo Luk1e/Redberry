@@ -10,7 +10,18 @@ class Page_3 extends Component {
   }
 
   handleClick = (param) => {
-    this.props.setStateOfParent(param);
+    this.props.setStateOfParent({
+      ...param,
+      page_3:
+        document.querySelector('input[name="dev-talks"]:checked') != null &&
+        (document.querySelector('input[name="dev-talks"]:checked').value ==
+        "true"
+          ? document.getElementById("devtalks").value != null
+          : true)  &&
+        document.getElementById("spectalks").value != null &&
+         document.getElementById("spectalks").value != ""  &&
+        Object.keys(document.getElementsByClassName("error")).length === 0,
+    });
   };
   render() {
     return (
@@ -21,7 +32,7 @@ class Page_3 extends Component {
 
         {/* devtalks */}
 
-        <fieldset className="radios N2 N5 ">
+        <fieldset className="radios N2 N5 " id="will_organize_devtalk-field">
           <h1>Would you attend Devtalks and maybe also organize your own? (</h1>
 
           <div>
@@ -36,6 +47,18 @@ class Page_3 extends Component {
                     ? true
                     : false
                 }
+                onClick={() => {
+                  if (
+                    document.contains(
+                      document.getElementById("will_organize_devtalk-error")
+                    )
+                  ) {
+                    document
+                      .getElementById("will_organize_devtalk-error")
+                      .remove();
+                  }
+                  document.getElementById("aidi-dev").style.display = "flex";
+                }}
                 onChange={() =>
                   this.handleClick({
                     will_organize_devtalk: document.querySelector(
@@ -60,6 +83,21 @@ class Page_3 extends Component {
                     ? true
                     : false
                 }
+                onClick={() => {
+                  if (document.contains(document.getElementById("ertalks"))) {
+                    document.getElementById("ertalks").remove();
+                  }
+                  if (
+                    document.contains(
+                      document.getElementById("will_organize_devtalk-error")
+                    )
+                  ) {
+                    document
+                      .getElementById("will_organize_devtalk-error")
+                      .remove();
+                  }
+                  document.getElementById("aidi-dev").style.display = "none";
+                }}
                 onChange={() =>
                   this.handleClick({
                     will_organize_devtalk: document.querySelector(
@@ -74,7 +112,15 @@ class Page_3 extends Component {
         </fieldset>
 
         {/* devtalk topic */}
-        <fieldset className="radios N2 N4">
+        <fieldset
+          className="radios N2 N4"
+          id="aidi-dev"
+          style={
+            this.props.state.will_organize_devtalk == "true"
+              ? { display: "flex" }
+              : { display: "none" }
+          }
+        >
           <h1>What would you speak about at Devtalk?</h1>
           <div>
             <textarea
