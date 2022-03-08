@@ -22,7 +22,7 @@ class Applications extends React.Component {
   getApplications = () => {
     axios
       .get(
-        "https://bootcamp-2022.devtest.ge/api/applications?token=b486a442-f58f-4b34-a18e-d92cd98989a5"
+        "https://bootcamp-2022.devtest.ge/api/applications?token=a0cc00c4-a28f-4a5f-98b3-a5cbec6c6abf"
       )
       .then((res) => {
         const applications = res.data;
