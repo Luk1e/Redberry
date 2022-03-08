@@ -132,7 +132,7 @@ class Page_1 extends Component {
               className="exe"
               onClick={() => {
                 this.props.deleteSkillOfParent(skill, {
-                  page_1: Object.keys(this.props.state.skills).length >1,
+                  page_1: Object.keys(this.props.state.skills).length > 1,
                 });
               }}
             >

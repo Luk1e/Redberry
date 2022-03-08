@@ -1,0 +1,409 @@
+.applications {
+  background-color: #151718;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+}
+
+.applications section {
+  height: auto;
+  margin-left: 15%;
+  margin-top: 1%;
+  width: 60%;
+}
+
+.applications section:first-of-type {
+  margin-top: 3%;
+}
+
+.applications section header {
+  height: 7vh;
+  background-color: #fe3b1f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.applications section header h1 {
+  width: 100%;
+  margin: 0;
+  margin-left: 2%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+}
+
+.applications section header .down-arrow {
+  font-size: 40px;
+  margin: 0 0 auto 0;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 90%;
+}
+
+.applications section header .up-arrow {
+  font-size: 40px;
+  margin: 4vh 0 auto 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 90%;
+}
+
+.applications section .content {
+  display: none;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  background: #ffffff;
+  /* Redberry Red */
+  border: 1px solid #fe3b1f;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+      grid-template-areas: "P S" "P S" "P S" "C I" "C I" "C I";
+}
+
+.applications section .content header {
+  margin-top: 5vh;
+  background-color: #ffffff;
+}
+
+.applications section .content header h1 {
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  /* Redberry Red */
+  color: #fe3b1f;
+}
+
+.applications header h1 {
+  margin-top: 5%;
+  margin-left: 15%;
+  font-family: Rowdies;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 70px;
+  letter-spacing: 0.11em;
+  color: #ffffff;
+}
+
+.personal-information {
+  grid-area: "P";
+  padding-left: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.personal-information div {
+  margin-top: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+}
+
+.personal-information h2 {
+  margin-left: 3%;
+  width: 20%;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000000;
+}
+
+.personal-information h3 {
+  margin-left: 40px;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #454545;
+}
+
+.skillset {
+  grid-area: "S";
+  margin-left: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.skillset h2 {
+  width: 20%;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000000;
+  margin-left: 2%;
+}
+
+.skillset div {
+  margin-top: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+}
+
+.skillset div h2:nth-of-type(2) {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  margin-left: 10px;
+}
+
+.covid-situation {
+  grid-area: "C";
+  padding-left: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-bottom: 50%;
+}
+
+.covid-situation div {
+  margin-top: 10%;
+}
+
+.covid-situation div h2 {
+  margin-top: 10%;
+  margin-left: 2%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000000;
+}
+
+.covid-situation div h3 {
+  margin-top: 5%;
+  margin-left: 5%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000000;
+}
+
+.covid-situation div h4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 3%;
+  margin-top: 5%;
+  border: 1px solid #525557;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 349px;
+  height: 54px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 10%;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #454545;
+}
+
+.covid-situation div h4 img {
+  margin-left: auto;
+  margin-right: 10%;
+}
+
+.covid-situation div:first-of-type {
+  margin-top: 0;
+}
+
+.covid-situation div:first-of-type h2 {
+  margin-top: 5%;
+}
+
+.insigts {
+  grid-area: "I";
+  margin-left: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.insigts h2 {
+  margin-left: 2%;
+  width: 447px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000000;
+}
+
+.insigts h3 {
+  margin-top: 5%;
+  margin-left: 5%;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000000;
+}
+
+.insigts h4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 3%;
+  margin-top: 5%;
+  border: 1px solid #525557;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 349px;
+  height: 54px;
+  padding-left: 10%;
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  padding-top: 5%;
+  padding-left: 5%;
+  color: #454545;
+}
+
+.insigts div:not(:first-of-type) {
+  margin-top: 9vh;
+}
+
+.insigts div:not(:first-of-type) h4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 3%;
+  margin-top: 5%;
+  background: #ffffff;
+  min-height: 120px;
+  /* Primary Stroke */
+  border: 1px solid #525557;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 447px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 16px;
+  display: flex;
+  padding-top: 5%;
+  padding-left: 5%;
+  color: #454545;
+}
+
+.icon {
+  padding-bottom: 3px;
+  font-size: 18px;
+  margin-right: 5px;
+}
+/*# sourceMappingURL=applications.css.map */

@@ -20,7 +20,7 @@ const Home = () => {
         Start Questionnaire
       </button>
       {/* link to form page */}
-      <Link to="/Form" className="form-link">
+      <Link to="/Applications" className="form-link">
         Submitted Applications
       </Link>
       <div className="rocketman"></div>

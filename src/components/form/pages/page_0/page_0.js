@@ -183,11 +183,6 @@ class Page_0 extends Component {
 }
 
 /*
-   there is written that phone is not required but why we need incorrect numbers?
-   so user can leave it empty or write only correct one!!!
-
-*/
-/* this is long code but it costs this
 
      Explanation
   I replaced input number so that all chars(except numbers) are removed

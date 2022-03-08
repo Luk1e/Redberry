@@ -3,7 +3,7 @@
   position: absolute;
   height: 100vh;
   width: 100vw;
-  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  background-color: rgba(21, 23, 24, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,7 @@
   display: none;
   height: 100vh;
   width: 100vw;
-  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+  background-color: rgba(21, 23, 24, 1);
   justify-content: center;
   z-index: 3;
   position: absolute;

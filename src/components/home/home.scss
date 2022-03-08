@@ -15,7 +15,9 @@
   flex-direction: column;
   text-align: center;
   /* Primary BG */
-  background: radial-gradient(50% 50% at 50% 50%, #0c0d0e 0%, #151718 73.44%);
+
+  background-color: rgba(21, 23, 24, 1);
+
   // header
   header {
     //I needed z-index to bring front text(stars were messing things up)

@@ -175,6 +175,13 @@ class Page_2 extends Component {
                   ) {
                     document.getElementById("had_covid-error").remove();
                   }
+                   if (
+                     document.contains(
+                       document.getElementById("had_covid_at-error")
+                     )
+                   ) {
+                     document.getElementById("had_covid_at-error").remove();
+                   }
                   document.getElementById("aidi").style.display = "none";
                 }}
                 checked={this.props.state.had_covid == "false" ? true : false}
@@ -277,6 +284,13 @@ class Page_2 extends Component {
                   ) {
                     document.getElementById("vaccinated-error").remove();
                   }
+                   if (
+                document.contains(
+                  document.getElementById("vaccinated_at-error")
+                )
+              ) {
+                document.getElementById("vaccinated_at-error").remove();
+              };
                   document.getElementById("aidi-1").style.display = "none";
                 }}
                 checked={this.props.state.vaccinated == "false" ? true : false}
