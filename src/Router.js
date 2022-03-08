@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/home/home";
 import Forms from "./components/form/form";
 import Applications from "./components/aplications/applications";
+
 const RouterSetup = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>

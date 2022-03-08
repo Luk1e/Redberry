@@ -5,7 +5,7 @@ import "./applications.css";
 //axios
 import axios from "axios";
 //calendar image
-import logo from "./calendar.png";
+import logo from "./calendar.png"
 
 class Applications extends React.Component {
   //-                  STATE
@@ -13,7 +13,7 @@ class Applications extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      skills: [],
+      skills:[],
       applications: [],
     };
   }
@@ -22,7 +22,7 @@ class Applications extends React.Component {
   getApplications = () => {
     axios
       .get(
-        "https://bootcamp-2022.devtest.ge/api/applications?token=a0cc00c4-a28f-4a5f-98b3-a5cbec6c6abf"
+        "https://bootcamp-2022.devtest.ge/api/applications?token=07fc0e11-8ffc-45c6-9777-eaed19646f2d"
       )
       .then((res) => {
         const applications = res.data;
@@ -32,7 +32,14 @@ class Applications extends React.Component {
         });
       });
   };
+  skillName(id) {
 
+    let skill = [];
+    setTimeout(() => { skill = this.state.skills.find((element) => element["id"] == id) }, 200)
+     
+    return skill["title"];
+    
+  }
   optionSkills = () => {
     axios.get("https://bootcamp-2022.devtest.ge/api/skills").then((res) => {
       const skills = res.data;
@@ -40,7 +47,7 @@ class Applications extends React.Component {
         ...this.state,
         skills: skills,
       });
-    });
+    })
   };
   componentDidMount() {
     this.getApplications();
@@ -134,13 +141,7 @@ class Applications extends React.Component {
                 </header>
                 {app.skills.map((skill) => (
                   <div key={skill.id}>
-                    <h2>
-                      {
-                        this.state.skills.find(
-                          (element) => element["id"] == skill.id
-                        )["title"]
-                      }
-                    </h2>
+                    <h2>{this.skillName(skill.id)}</h2>
                     <h2>Years of Experience:{skill.experience}</h2>
                   </div>
                 ))}
