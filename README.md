@@ -5,9 +5,8 @@
 
 #                                                      H O M E             P A G E
 ###              Redberry/src/components/home/
-                         <br />
 ##           ./home.js      here is the main page with 2 link
-<br />
+
 
 #                                                     F O R M           P A G E
 
