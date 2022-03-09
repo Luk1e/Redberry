@@ -1,5 +1,5 @@
 import React from "react";
-
+//This element gets the ID of the element after which it is to be created, the context and its ID
 function error(id, text, id2) {
   let element = document.getElementById(id);
   let error = document.createElement("p");
