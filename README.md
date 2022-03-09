@@ -1,7 +1,8 @@
 #                                                         I N S T R U C T I O N
 ### 
 
-##   In  Redberry/src/router/ you can see react router which has 3 routes (home.apge(starting page) || Form  and apllications page||
+##   In  Redberry/src/router/ you can see react router which has 3
+##   routes (home.apge(starting page) || Form  and apllications page||
 ##   In  Redberry/src/components/ you can see this 3 sub folder  with special files
 <br />
 #                                                      H O M E             P A G E
