@@ -22,7 +22,7 @@ class Applications extends React.Component {
   getApplications = () => {
     axios
       .get(
-        "https://bootcamp-2022.devtest.ge/api/applications?token=07fc0e11-8ffc-45c6-9777-eaed19646f2d"
+        "https://bootcamp-2022.devtest.ge/api/applications?token=d24c69f6-9b80-4cd3-a810-79714ccc2a29"
       )
       .then((res) => {
         const applications = res.data;
@@ -32,17 +32,17 @@ class Applications extends React.Component {
         });
       });
   };
+  //for getting skills and then map then to id
   async getData() {
-     
-    const res = (await axios.get("https://bootcamp-2022.devtest.ge/api/skills")).data;
+    const res = (await axios.get("https://bootcamp-2022.devtest.ge/api/skills"))
+      .data;
     this.setState({
-       ...this.state,
-       skills:res,
-     });
-
+      ...this.state,
+      skills: res,
+    });
   }
   componentDidMount() {
-    this.getData()
+    this.getData();
     this.getApplications();
   }
 
@@ -52,6 +52,7 @@ class Applications extends React.Component {
         <header>
           <h1>Submitted Applications</h1>
         </header>
+
         {this.state.applications.map((app) => (
           <section key={this.state.applications.indexOf(app)}>
             <header
@@ -133,8 +134,13 @@ class Applications extends React.Component {
                 </header>
                 {app.skills.map((skill) => (
                   <div key={skill.id}>
-                    <h2>{
-                      this.state.skills.find((element) => element["id"] == skill.id)["title"]}</h2>
+                    <h2>
+                      {
+                        this.state.skills.find(
+                          (element) => element["id"] == skill.id
+                        )["title"]
+                      }
+                    </h2>
                     <h2>Years of Experience:{skill.experience}</h2>
                   </div>
                 ))}
