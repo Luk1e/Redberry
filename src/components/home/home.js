@@ -20,7 +20,13 @@ const Home = () => {
         Start Questionnaire
       </button>
       {/* link to form page */}
-      <Link to="/Applications" className="form-link">
+      <Link
+        to={{
+          pathname: "/Applications",
+          state: { message: "hello, im a passed message!" },
+        }}
+        className="form-link"
+      >
         Submitted Applications
       </Link>
       <div className="rocketman"></div>

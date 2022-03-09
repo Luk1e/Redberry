@@ -5,7 +5,7 @@ import "./applications.css";
 //axios
 import axios from "axios";
 //calendar image
-import logo from "./calendar.png"
+import logo from "./calendar.png";
 
 class Applications extends React.Component {
   //-                  STATE
@@ -13,7 +13,7 @@ class Applications extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      skills:[],
+      skills: [],
       applications: [],
     };
   }
@@ -32,26 +32,18 @@ class Applications extends React.Component {
         });
       });
   };
-  skillName(id) {
-
-    let skill = [];
-    setTimeout(() => { skill = this.state.skills.find((element) => element["id"] == id) }, 200)
+  async getData() {
      
-    return skill["title"];
-    
+    const res = (await axios.get("https://bootcamp-2022.devtest.ge/api/skills")).data;
+    this.setState({
+       ...this.state,
+       skills:res,
+     });
+
   }
-  optionSkills = () => {
-    axios.get("https://bootcamp-2022.devtest.ge/api/skills").then((res) => {
-      const skills = res.data;
-      this.setState({
-        ...this.state,
-        skills: skills,
-      });
-    })
-  };
   componentDidMount() {
+    this.getData()
     this.getApplications();
-    this.optionSkills();
   }
 
   render() {
@@ -141,7 +133,8 @@ class Applications extends React.Component {
                 </header>
                 {app.skills.map((skill) => (
                   <div key={skill.id}>
-                    <h2>{this.skillName(skill.id)}</h2>
+                    <h2>{
+                      this.state.skills.find((element) => element["id"] == skill.id)["title"]}</h2>
                     <h2>Years of Experience:{skill.experience}</h2>
                   </div>
                 ))}

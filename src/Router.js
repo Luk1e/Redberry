@@ -11,9 +11,13 @@ const RouterSetup = () => {
     <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         {/* make routes to all files(home page,form page,apllications) */}
-        <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<Home />}  />
         <Route exact path="/Form" element={<Forms />} />
-        <Route exact path="/Applications" element={<Applications />} />
+        <Route
+          exact
+          path="/Applications"
+          element={<Applications />}
+        />
       </Routes>
     </Router>
   );
